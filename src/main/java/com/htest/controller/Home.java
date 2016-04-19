@@ -3,9 +3,9 @@ package com.htest.controller;
 import com.htest.model.Stock;
 import com.htest.model.StockDetail;
 import com.htest.service.StockService;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
@@ -29,8 +29,14 @@ public class Home {
     public String test() {
         Stock stock = new Stock(stockService.randomString(), stockService.randomString());
         StockDetail stockDetail = new StockDetail(stock, stockService.randomString(), stockService.randomString(), stockService.randomString(), new Date());
-        Session session = stockService.openSession();
-        stockService.addStock(stock, stockDetail, session);
+        stockService.setSessionFactory();
+        stockService.addStock(stock, stockDetail);
+        return "home";
+    }
+
+    @RequestMapping(value = "/get/{id}")
+    public String getStock(@PathVariable("id") int id) {
+        System.out.println(stockService.getStock(id));
         return "home";
     }
 }

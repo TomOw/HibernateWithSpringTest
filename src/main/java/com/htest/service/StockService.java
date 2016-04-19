@@ -11,9 +11,13 @@ import org.springframework.stereotype.Service;
 @Service
 public interface StockService {
 
-    void addStock(Stock stock, StockDetail stockDetail, Session session);
+    void addStock(Stock stock, StockDetail stockDetail);
 
     Session openSession();
 
     String randomString();
+
+    void setSessionFactory();
+
+    public Stock getStock(int id);
 }

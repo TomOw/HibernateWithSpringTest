@@ -89,4 +89,14 @@ public class StockDetail implements java.io.Serializable {
         this.listedDate = listedDate;
     }
 
+    @Override
+    public String toString() {
+        return "StockDetail{" +
+                "stockId=" + stockId +
+                ", compName='" + compName + '\'' +
+                ", compDesc='" + compDesc + '\'' +
+                ", remark='" + remark + '\'' +
+                ", listedDate=" + listedDate +
+                '}';
+    }
 }

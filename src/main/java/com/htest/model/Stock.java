@@ -66,4 +66,13 @@ public class Stock implements java.io.Serializable {
         this.stockDetail = stockDetail;
     }
 
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "stockId=" + stockId +
+                ", stockCode='" + stockCode + '\'' +
+                ", stockName='" + stockName + '\'' +
+                ", stockDetail=" + stockDetail +
+                '}';
+    }
 }
