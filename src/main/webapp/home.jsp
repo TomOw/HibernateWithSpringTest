@@ -12,5 +12,11 @@
 </head>
 <body>
     Hello World
+    <h1>
+        ${user.id}
+        ${user.password}
+        ${user.smth}
+        ${user.userName}
+    </h1>
 </body>
 </html>

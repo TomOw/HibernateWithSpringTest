@@ -1,6 +1,7 @@
 package com.htest.config;
 
-import com.htest.model.AppUser;
+import com.htest.model.Stock;
+import com.htest.model.StockDetail;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -16,12 +17,14 @@ import java.util.Properties;
 /**
  * Created by sazzad on 9/7/15
  */
+
 @Configuration
 @EnableTransactionManagement
 public class DatabaseConfig {
-    /*
+/*
     * create database
     * create database inventory_management; */
+
     @Autowired
     private ApplicationContext appContext;
 
@@ -65,7 +68,7 @@ public class DatabaseConfig {
         LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
         localSessionFactoryBean.setDataSource((DataSource) appContext.getBean("DataSource"));
         localSessionFactoryBean.setAnnotatedClasses(
-                AppUser.class
+                Stock.class, StockDetail.class
         );
 
         Properties properties = new Properties();

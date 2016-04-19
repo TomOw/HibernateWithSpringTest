@@ -1,10 +1,14 @@
 package com.htest.controller;
 
-import com.htest.model.AppUser;
-import com.htest.service.AppUserService;
+import com.htest.model.Stock;
+import com.htest.model.StockDetail;
+import com.htest.service.StockService;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.Date;
 
 /**
  * Created by Tomasz on 13.04.2016.
@@ -13,26 +17,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Home {
 
     @Autowired
-    AppUserService appUserService;
+    StockService stockService;
 
     @RequestMapping(value = "/")
     public String home() {
         return "home";
     }
 
-    @RequestMapping(value = "/init")
-    public String addUser() {
-        appUserService.insertUser(new AppUser(1, "Ala", "password"));
-        appUserService.insertUser(new AppUser(2, "Ola", "password"));
-        appUserService.insertUser(new AppUser(3, "Kasia", "password"));
-        appUserService.insertUser(new AppUser(4, "Basia", "password"));
-        appUserService.insertUser(new AppUser(5, "Joasia", "password"));
-        return "home";
-    }
 
-    @RequestMapping(value = "/get")
-    public String getUser() {
-        appUserService.getUser(1);
+    @RequestMapping(value = "/test")
+    public String test() {
+        Stock stock = new Stock(stockService.randomString(), stockService.randomString());
+        StockDetail stockDetail = new StockDetail(stock, stockService.randomString(), stockService.randomString(), stockService.randomString(), new Date());
+        Session session = stockService.openSession();
+        stockService.addStock(stock, stockDetail, session);
         return "home";
     }
 }
