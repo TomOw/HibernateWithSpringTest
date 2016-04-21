@@ -1,3 +1,4 @@
+/*
 package com.htest.config;
 
 import com.htest.model.Stock;
@@ -14,17 +15,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * Created by sazzad on 9/7/15
- */
-
 @Configuration
 @EnableTransactionManagement
 public class DatabaseConfig {
-/*
-    * create database
-    * create database inventory_management; */
-
     @Autowired
     private ApplicationContext appContext;
 
@@ -55,7 +48,6 @@ public class DatabaseConfig {
         return dataSource;
     }
 
-
     @Bean
     public HibernateTransactionManager transactionManager() {
         HibernateTransactionManager manager = new HibernateTransactionManager();
@@ -81,3 +73,4 @@ public class DatabaseConfig {
         return localSessionFactoryBean;
     }
 }
+*/

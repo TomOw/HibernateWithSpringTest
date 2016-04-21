@@ -13,10 +13,10 @@
 <body>
     Hello World
     <h1>
-        ${user.id}
-        ${user.password}
-        ${user.smth}
-        ${user.userName}
+        ${Stock.stockId}
+        ${Stock.stockCode}
+        ${Stock.stockDetail.listedDate}
+        ${Stock.stockDetail.compDesc}
     </h1>
 </body>
 </html>

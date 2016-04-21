@@ -5,6 +5,8 @@ import com.htest.model.StockDetail;
 import org.hibernate.Session;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Tomasz on 19.04.2016.
  */
@@ -19,5 +21,8 @@ public interface StockService {
 
     void setSessionFactory();
 
-    public Stock getStock(int id);
+    Stock getStock(int id);
+
+    List getStockByName(String name);
+
 }
